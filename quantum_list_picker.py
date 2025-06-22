@@ -1,11 +1,12 @@
 import math
+import argparse
 from qiskit_ibm_provider import IBMProvider  # type: ignore
 from qiskit import transpile
 from qiskit.circuit import QuantumCircuit
 
 
 def pick_random_element(items, backend_name="ibm_lima"):
-    """Pick a random element from items using a quantum backend.
+    """Pick a random element from ``items`` using an IBM Quantum backend.
 
     Args:
         items (list): List of items to choose from.
@@ -39,8 +40,7 @@ def pick_random_element(items, backend_name="ibm_lima"):
     return items[index]
 
 
-if __name__ == "__main__":
-    items = [
+DEFAULT_ITEMS = [
         "Ant", "Bear", "Cat", "Dog", "Elephant", "Frog", "Giraffe", "Horse",
         "Iguana", "Jaguar", "Koala", "Lion", "Monkey", "Newt", "Owl",
         "Penguin", "Quail", "Rabbit", "Snake", "Tiger", "Urchin", "Vulture",
@@ -51,7 +51,23 @@ if __name__ == "__main__":
         "Xantus", "Yakutian Horse", "Zebu", "Alpaca", "Bison", "Crab",
         "Donkey", "Emu", "Firefly", "Gazelle", "Heron", "Insect", "Jackal",
         "Kookaburra", "Llama"
-    ]
+]
 
-    element = pick_random_element(items)
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Pick a random element using IBM Quantum hardware"
+    )
+    parser.add_argument(
+        "--backend",
+        default="ibm_lima",
+        help="IBM Quantum backend name (default: ibm_lima)",
+    )
+    args = parser.parse_args()
+
+    element = pick_random_element(DEFAULT_ITEMS, backend_name=args.backend)
     print(f"Random element: {element}")
+
+
+if __name__ == "__main__":
+    main()
