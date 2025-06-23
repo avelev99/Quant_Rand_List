@@ -1,25 +1,19 @@
 # Quant Rand List
 
-This repository contains a simple Python script that uses IBM Quantum's free
-cloud QPUs to select a random element from any list. The script requires an
-IBM Quantum account and will fail if one is not configured.
+A simple utility for quantum random list selection.
 
-## `quantum_list_picker.py`
+## Overview
 
-Running the script will print a randomly chosen element from a predefined list
-of 64 animals and insects.  You can import `pick_random_element` and pass your
-own list.
+This project provides a tool for selecting items from a list using quantum randomness, ensuring unbiased and unpredictable results.
 
-### Requirements
+## Installation
 
-- Python 3.8+
-- `qiskit`
-- `qiskit-ibm-provider`
+Instructions for installation will be added as the project develops.
 
-After installing the requirements and saving your IBM Quantum API token using
-`IBMProvider.save_account('<TOKEN>')`, execute:
+## Usage
 
+Instructions for usage will be added as the project develops.
 
-```bash
-python quantum_list_picker.py
-```
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details (to be added).
